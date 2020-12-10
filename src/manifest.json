@@ -1,0 +1,22 @@
+{
+	"name": "Meevee",
+	"version": "1.0",
+	"description": "A plugin to automatically open your online meetings",
+	"permissions": ["background", "storage", "declarativeContent", "activeTab", "alarms", "tabs"],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+	"background": {
+		"scripts": ["background.js"]
+	},
+	"browser_action": {
+		"default_popup": "index.html",
+		"default_icon": "favicon.ico", 
+		"default_title": "Meevee"
+	},
+	"icons": {
+		"16": "favicon.ico",
+		"32": "favicon.ico",
+		"48": "favicon.ico",
+		"128": "favicon.ico"
+	},
+	"manifest_version": 2
+}

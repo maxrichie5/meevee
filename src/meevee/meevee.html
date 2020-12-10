@@ -1,0 +1,13 @@
+<header class="meevee-header">
+  <button
+    [ngClass]="{ 'back-button' : router.url !== '/events', 'back-button-disabled' : router.url === '/events'}"
+    (click)="toHome()" mat-icon-button
+    disableRipple="true"
+  >
+    <mat-icon>arrow_back_ios</mat-icon>
+  </button>
+  <img alt="logo" src="./../favicon.ico">
+</header>
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>

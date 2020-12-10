@@ -1,0 +1,81 @@
+@import 'src/styles/variables';
+@import 'src/styles/buttons';
+@import 'src/styles/animations';
+
+html {
+  font-size: 16px;
+
+  &.cdk-global-scrollblock {
+    position: static;
+  }
+
+  body {
+    margin: 0;
+    width: $popover-width;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: linear-gradient(0deg,$meevee-theme-blue 0%, $meevee-theme-purple 60%, $meevee-theme-blue 100%);
+    margin: 10px;
+  }
+}
+
+.meevee-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  top: 0px;
+  left: 0px;
+
+  font-size: $fs-xxxlarge;
+  letter-spacing: 4.6px;
+  word-spacing: 2px;
+
+  img {
+    height: 50px;
+    width: 50px;
+  }
+
+  .back-button {
+    color: white;
+  }
+
+  .back-button-disabled {
+    visibility: hidden;
+  }
+}
+
+.main-content {
+  padding-bottom: 55px;
+}
+
+.page-title {
+  font-size: $fs-xlarge;
+  font-weight: $fw-semi-thin;
+  margin-bottom: 20px;
+  color: $semi-white;
+}
+
+.form-hint {
+  color: $light-grey;
+  font-size: $fs-small;
+  font-weight: $fw-thin;
+}
+
+.ellipsis {
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  width: auto !important;
+}
+
+::ng-deep .mat-dialog-container {
+  padding-top: 0;
+}
+
+.menu-title {
+  margin: 0 16px;
+  font-weight: $fw-semi-bold;
+  font-size: $fs-medium;
+  text-align: start;
+  color: $sorta-black;
+  border-bottom: solid 1px $sorta-black;
+}

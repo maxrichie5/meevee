@@ -1,0 +1,48 @@
+<mat-card>
+  <mat-card-title>Event Info</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="eventFormGroup">
+      <mat-form-field appearance="{{ formStyle }}">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" placeholder="My Example Event">
+        <mat-error>{{ nameError() }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="{{ formStyle }}">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="desc" placeholder="My event that I have.">
+      </mat-form-field>
+
+      <mat-form-field appearance="{{ formStyle }}">
+        <mat-label>Meeting Link</mat-label>
+        <input matInput type="url" formControlName="link" placeholder="https://zoom.us/j/meeting-number">
+        <mat-error>{{ linkError() }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="{{ formStyle }}">
+        <mat-label>Meeting Time</mat-label>
+        <input matInput type="datetime-local" formControlName="time" placeholder="5/10/2020 11:00 A">
+        <mat-error>{{ timeError() }}</mat-error>
+      </mat-form-field>
+
+      <label class="radio-label">Recurrence</label>
+      <mat-radio-group matInput formControlName="recurrence">
+        <mat-radio-button value="day">Repeats every day</mat-radio-button>
+        <mat-radio-button value="week">Repeats every week</mat-radio-button>
+        <mat-radio-button value="month">Repeats every month</mat-radio-button>
+        <mat-radio-button value="none">Does not repeat</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field appearance="{{ formStyle }}">
+        <mat-label>Minutes before opening meeting</mat-label>
+        <input matInput type="number" formControlName="minutesBeforeOpening" placeholder="5">
+        <mat-error>{{ minBeforeOpeningError() }}</mat-error>
+      </mat-form-field>
+
+      <mat-slide-toggle *ngIf="canDeactivate" formControlName="deactivated">Deactivate event</mat-slide-toggle>
+      <div class="form-hint" *ngIf="canDeactivate">Deactivating an event will stop it from opening</div>
+    </form>
+
+    <button class="save-button" disabled="{{ !canSave }}" mat-raised-button color="primary" (click)="save()">{{ saveButtonText }}</button>
+  </mat-card-content>
+</mat-card>

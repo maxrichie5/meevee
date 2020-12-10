@@ -1,0 +1,45 @@
+<div class="page-title">
+  Events
+</div>
+
+<mat-card>
+  <div class="event-list-actions">
+    <div class="sort-menu-button">
+      <button mat-icon-button [matMenuTriggerFor]="sortMenu" aria-label="Sort Menu">
+        <mat-icon>sort</mat-icon>
+      </button>
+      <mat-menu #sortMenu="matMenu" xPosition="before">
+        <div class="menu-title">Sort Events</div>
+        <button mat-menu-item (click)="sortEventsAlphabetically()">
+          <mat-icon>sort_by_alpha</mat-icon>Alphabetically
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+  <mat-list cdkDropList (cdkDropListDropped)="eventDropped($event)">
+    <mat-list-item cdkDrag cdkDragLockAxis="y" class="slide-in-out-container" *ngFor="let event of events">
+      <div class="drag-custom-placeholder" *cdkDragPlaceholder></div>
+      <div class="event-item">
+        <div class="event-name-desc">
+          <button class="event-name left-to-right-underline" (click)="eventDetails(event)">
+            <p class="event-name-text">{{ event.name }}</p>
+          </button>
+          <p class="event-desc" *ngIf="!emptyDesc(event.desc)">{{ event.desc }}</p>
+        </div>
+
+        <div class="event-action-buttons slide-in-out-element">
+          <button class="edit-event-button" (click)="goToEditEvent(event.id)" mat-icon-button>
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button class="delete-event-button" (click)="deleteConfirmation(event)" mat-icon-button mat-fab color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
+<button mat-raised-button mat-icon-button class="add-event-button fixed-floating-button" color="primary" (click)="goToAddEvent()">
+  <mat-icon>add</mat-icon>
+</button>

@@ -1,0 +1,56 @@
+<div class="event-details-container">
+  <div mat-dialog-content class="content">
+    <div class="menu-button">
+      <button mat-icon-button [matMenuTriggerFor]="eventMenu" aria-label="Event Menu" (menuClosed)="unshowDeleteConfirmation($event)">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #eventMenu="matMenu" xPosition="before">
+        <button mat-menu-item (click)="editEvent()">
+          <mat-icon>edit</mat-icon>Edit
+        </button>
+        <button mat-menu-item (click)="duplicateEvent()">
+          <mat-icon>content_copy</mat-icon>Duplicate
+        </button>
+        <button mat-menu-item (click)="showDeleteConfirmation($event)" class="delete-button">
+          <div class="delete-card-container" #deleteButton>
+            <div class="delete-front"><mat-icon>delete</mat-icon>Delete</div>
+            <div class="delete-back">
+              <div class="delete-confirmation-buttons">
+                <button mat-mini-fab class="delete-confirmation-button" (click)="unshowDeleteConfirmation($event)" color="primary"><mat-icon>close</mat-icon></button>
+                <button mat-mini-fab class="delete-confirmation-button" (click)="deleteEvent($event)" color="warn"><mat-icon>delete</mat-icon></button>
+              </div>
+            </div>
+          </div>
+        </button>
+      </mat-menu>
+    </div>
+    <div class="name">{{ event.name}}</div>
+    <div class="desc">{{ event.desc }}</div>
+    <mat-divider></mat-divider>
+    <div class="event-details-field">
+      <label>Link</label>
+      <a [href]="event.link" target="_blank" class="left-to-right-underline ellipsis">{{ event.link }}</a>
+    </div>
+    <div class="event-details-field">
+      <label>Time</label>
+      <p>{{ time }}</p>
+    </div>
+    <div class="event-details-field">
+      <label>Recurrence</label>
+      <p>{{ recurrence }}</p>
+    </div>
+    <div class="event-details-field">
+      <label>Minutes before opening</label>
+      <p>{{ minutesBeforeOpening }}</p>
+    </div>
+    <div class="event-details-field">
+      <label>Status</label>
+      <p>{{ deactivated }}</p>
+    </div>
+  </div>
+  <div mat-dialog-actions class="actions">
+    <button mat-flat-button color="primary" (click)="close()">
+      Close
+    </button>
+  </div>
+</div>
