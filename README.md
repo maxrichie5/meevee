@@ -1,5 +1,5 @@
 # Meevee
-Meevee (My Extra Efficient Virtual Event Executor) will be a Google Chrome plugin targeted at students which will open scheduled Zoom classes automatically based on Zoom links and schedule information provided by the user. 
+Meevee (My Extra Efficient Virtual Event Executor) is a Google Chrome plugin targeted at students that opens scheduled Zoom meetings automatically based on Zoom links and schedule information provided by the user. 
 
 ## Building
 This project can be run in the browser or as a Chrome extension.
